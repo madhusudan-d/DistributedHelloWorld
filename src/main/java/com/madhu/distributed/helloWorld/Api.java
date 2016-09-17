@@ -30,6 +30,16 @@ public class Api {
 	private AppConfig appConfig = Configuration.getAppCofig();
 	private String dataDirectoryPath = appConfig.dataDirectoryPath;
 
+	/*
+	 * TODO : add json as response
+	 */
+	@GET
+	@Path("/")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String options() {
+		return "Available Options:\n" + "-> file/upload" + "\n" + "->hello";
+	}
+
 	@POST
 	@Path("file/upload")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)

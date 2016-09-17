@@ -19,13 +19,12 @@ import com.madhu.distributed.helloWorld.base.Configuration.AppConfig;
 public class FileTasks {
 
 	public static AppConfig appConfig = Configuration.getAppCofig();
-	private int appPort=appConfig.port;
+	private int appPort = appConfig.port;
 
 	public void addFile(String location) {
 
 		if (appConfig.nodeIps == null) {
 			System.out.println("This is one node set up OR Please add ip in application.conf");
-
 		} else {
 
 			for (String ip : appConfig.nodeIps) {

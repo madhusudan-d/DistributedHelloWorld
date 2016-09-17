@@ -47,6 +47,9 @@ public class Configuration {
 		public String dataDirectoryPath=appConfig.getString("dataDirectoryPath");
 
 		private static String[] extractIps(String nodeIPs) {
+			if(nodeIPs.isEmpty()){
+				return null;
+			}
 			System.out.println("AppConfig :" +nodeIPs);
 			return nodeIPs.split(",");
 		}

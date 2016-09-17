@@ -48,6 +48,8 @@ public class Main {
 		jerseyServlet.setInitOrder(0);
 		context.addServlet(jerseyServlet, "/*");
 
+		startLeaderElection();
+		
 		Server server = new Server(appPort);
 		server.setHandler(context);
 
@@ -63,7 +65,7 @@ public class Main {
 
 	}
 
-	public void startLeaderElection() {
+	public static void startLeaderElection() {
 		ElectLeader elect = new ElectLeader();
 		try {
 			elect.start();

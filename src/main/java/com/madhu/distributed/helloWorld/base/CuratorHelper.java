@@ -9,6 +9,7 @@ public class CuratorHelper {
 	
 	public static void persist(String path,byte[] value){
 		try {
+			zkClient.blockUntilConnected();
 			zkClient.create().creatingParentsIfNeeded().forPath(path,value);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

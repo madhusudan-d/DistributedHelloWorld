@@ -12,7 +12,13 @@ public class FileService {
 
 	public void upload(InputStream inputStream, String location) {
 		try {
-			OutputStream out = new FileOutputStream(new File(location));
+			
+			String dataDir=System.getProperty("user.dir")+"/data";
+			File directory = new File(dataDir);
+			if(!directory.exists()){
+				directory.mkdirs();
+			}
+			OutputStream out = new FileOutputStream(new File(dataDir+"/"+location));
 			int read = 0;
 			byte[] bytes = new byte[1024];
 			while ((read = inputStream.read(bytes)) != -1) {
